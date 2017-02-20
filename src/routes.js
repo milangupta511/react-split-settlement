@@ -6,6 +6,7 @@ import GroupList from './components/group_list';
 import ActivityList from './components/activity_list';
 import NewExpense from './components/new_expense';
 import HomePage from './components/home_page';
+import NewGroup from './components/new_group';
 export default (
     
     <Route path="/" component={App} >
@@ -15,5 +16,6 @@ export default (
             <Route path="activity" component={ActivityList} />
         </Route>
         <Route path="newexpense" component={NewExpense} />
+        <Route path="newgroup" component={NewGroup} />
     </Route>
 )

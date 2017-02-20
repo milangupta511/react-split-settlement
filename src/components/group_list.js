@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router';
 
 class GroupList extends Component {
     render() {
         return (
             <div>
-                some group
+                No group Exists 
+                <Link to="/newgroup">+ Create new group</Link>
             </div>
         );
     }
