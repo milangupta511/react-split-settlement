@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import AddList from '../containers/add_list';
-import FilterList from '../containers/filter_list';
+import React, {Component} from 'react';
+import Header from './header';
+import AddExpenseButton from './add_expense_button';
 export default class App extends Component {
   render() {
     return (
-    	<div className="demo-card-wide mdl-card mdl-shadow--2dp">
-			<AddList />
-			<FilterList />
-		</div>
+      <div>
+        <Header />
+        <AddExpenseButton />
+        {this.props.children}
+      </div>
     );
   }
 }
