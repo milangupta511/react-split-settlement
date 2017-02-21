@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import AddToDoReducer from './reducer_add_todo';
+import newExpenseFormReducer from './reducer_new_expense_form';
 const rootReducer = combineReducers({
-	toDoList:AddToDoReducer
+	newExpenseForm:newExpenseFormReducer
 });
 
 export default rootReducer;
