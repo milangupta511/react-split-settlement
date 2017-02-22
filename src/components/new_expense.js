@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {onChangeDescription,onChangeBillMember,onChangeAmount} from '../actions/index'
+import {onChangeDescription,onChangeBillMember,onChangeAmount,onSubmitExpense} from '../actions/index'
 
 class NewExpense extends Component {
     constructor(props){
@@ -9,8 +9,9 @@ class NewExpense extends Component {
         this.onFormSubmit = this.onFormSubmit.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
     }
-    onFormSubmit(){
+    onFormSubmit(event){
         event.preventDefault();
+        this.props.onSubmitExpense(this.props.newExpenseForm);
     }
     onInputChange(event){
         let actionHandler ='onChange' +  event.target.name[0].toUpperCase()+event.target.name.slice(1);
@@ -46,6 +47,6 @@ function mapStateToProps({newExpenseForm}){
     }
 }
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({onChangeDescription,onChangeBillMember,onChangeAmount}, dispatch)
+    return bindActionCreators({onChangeDescription,onChangeBillMember,onChangeAmount,onSubmitExpense}, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(NewExpense);

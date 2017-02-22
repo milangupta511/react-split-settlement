@@ -1,21 +1,23 @@
 const path = require('path')
 const express = require('express')
+var bodyParser = require('body-parser');
+var parseUrlEncoded = bodyParser.json();
 
 module.exports = {
   app: function () {
+    var expenseArray = []; 
     const app = express();
     const indexPath = path.join(__dirname, 'index.html');
 
     app.get('/', function (_, res) { res.sendFile(indexPath) });
-    app.get('/blocks', function(request, response){
-	var blocks = ["Fixed", "Movable", "Rotating"]
-	if(request.query.limit >=0 && request.query.limit <= blocks.length - 1){
-		response.json(blocks.slice(0, request.query.limit));
-	} else{
-	  response.json(blocks);
-	}
-
-});
+    app.get('/expense', function(request, response){
+  	  response.json(expenseArray);
+    })
+    app.post('/expense',parseUrlEncoded, function(request, response){
+      var newBlock = request.body;
+      expenseArray.push(newBlock)
+      response.status(201).json(newBlock);
+    })
 
     return app;
   }
