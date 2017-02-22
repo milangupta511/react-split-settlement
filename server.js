@@ -8,7 +8,8 @@ module.exports = {
     var expenseArray = []; 
     const app = express();
     const indexPath = path.join(__dirname, 'index.html');
-
+    const publicPath = express.static(path.join(__dirname, '/style'));
+    app.use('/style', publicPath);
     app.get('/', function (_, res) { res.sendFile(indexPath) });
     app.get('/expense', function(request, response){
   	  response.json(expenseArray);
