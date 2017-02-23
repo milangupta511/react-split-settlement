@@ -6,7 +6,7 @@ class HomePage extends Component {
     render() {
         return (
             <div>
-                <Link to="/newExpense" >Add Expense</Link>
+                <Link to="/newexpense" >Add Expense</Link>
                 <h1></h1>
                 <ul>
                     <li><Link to="/">Friends</Link></li>

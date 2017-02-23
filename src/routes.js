@@ -7,6 +7,7 @@ import ActivityList from './components/activity_list';
 import NewExpense from './components/new_expense';
 import HomePage from './components/home_page';
 import NewGroup from './components/new_group';
+import NotFoundPage from './components/not_found_page';
 export default (
     
     <Route path="/" component={App} >
@@ -17,5 +18,6 @@ export default (
         </Route>
         <Route path="newexpense" component={NewExpense} />
         <Route path="newgroup" component={NewGroup} />
+        <Route path="*" component={NotFoundPage} />
     </Route>
 )
