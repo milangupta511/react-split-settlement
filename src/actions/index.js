@@ -3,9 +3,43 @@ export const ONCHANGE_BILL_MEMBER = 'ONCHANGE_BILL_MEMBER';
 export const ONCHANGE_DESCRIPTION = 'ONCHANGE_DESCRIPTION';
 export const ONCHANGE_AMOUNT='ONCHANGE_AMOUNT';
 export const ONSUBMIT_EXPENSE='ONSUBMIT_EXPENSE';
+export const ONSUBMIT_GROUP = 'ONSUBMIT_GROUP';
+export const ONCHANGE_GROUP_NAME='ONCHANGE_GROUP_NAME';
+export const ONINCREMENT_GROUP_MEMBER = 'ONINCREMENT_GROUP_MEMBER';
+export const ONCHANGE_GROUP_MEMBER  = 'ONCHANGE_GROUP_MEMBER';
+export const ONREMOVE_GROUP_MEMBER = 'ONREMOVE_GROUP_MEMBER';
+export const FETCH_GROUPS = 'FETCH_GROUPS';
+
+export function fetchGroups(){
+	const groupsUrl = '/api/groups';
+	let payload = axios.get(groupsUrl)
+	return ({
+		type:FETCH_GROUPS,
+		payload
+	})
+}
+export function onSubmitGroup(data){
+	const groupUrl = axios.post('/api/newgroup', data)
+	return({
+		type: ONSUBMIT_GROUP,
+		payload: groupUrl
+	})
+}
+export function onChangeGroupMember(item,index){
+	return({type:ONCHANGE_GROUP_MEMBER, item,index})
+}
+export function onRemoveGroupMember(index){
+	return ({type:ONREMOVE_GROUP_MEMBER, index})
+}
+export function onChangeGroupName(data) {
+	return({type: ONCHANGE_GROUP_NAME, payload:data})
+}
+export function onIncrementGroupMember(){
+	return ({type: ONINCREMENT_GROUP_MEMBER})
+}
 
 export function onSubmitExpense(data){
-	const expenseUrl = axios.post('/expense', data)
+	const expenseUrl = axios.post('/api/expense', data)
 	return({
 		type: ONSUBMIT_EXPENSE,
 		payload: expenseUrl
