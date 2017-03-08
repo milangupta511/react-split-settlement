@@ -6,7 +6,6 @@ import {fetchGroups} from '../actions/index';
 
 class GroupList extends Component {
     componentWillMount(){
-        console.log('here')
     	this.props.fetchGroups()
     }
     handleGroupItemClick = () => {

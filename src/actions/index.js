@@ -9,7 +9,16 @@ export const ONINCREMENT_GROUP_MEMBER = 'ONINCREMENT_GROUP_MEMBER';
 export const ONCHANGE_GROUP_MEMBER  = 'ONCHANGE_GROUP_MEMBER';
 export const ONREMOVE_GROUP_MEMBER = 'ONREMOVE_GROUP_MEMBER';
 export const FETCH_GROUPS = 'FETCH_GROUPS';
+export const FETCH_ACTIVITY = 'FETCH_ACTIVITY';
 
+export function fetchActivity() {
+	const activityUrl = '/api/activity';
+	let payload = axios.get(activityUrl);
+	return({
+		type:FETCH_ACTIVITY,
+		payload
+	})
+}
 export function fetchGroups(){
 	const groupsUrl = '/api/groups';
 	let payload = axios.get(groupsUrl)
